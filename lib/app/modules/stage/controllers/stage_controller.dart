@@ -59,7 +59,7 @@ class StageController extends GetxController {
       final responsePut = await http.put(
         Uri.parse('$baseUrl/$stageId'),
         headers: {'Content-Type': 'application/json'},
-
+        //body: jsonEncode(updatedStage),
       );
 
       if (responsePut.statusCode == 200) {
