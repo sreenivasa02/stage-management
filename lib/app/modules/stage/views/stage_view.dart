@@ -2,16 +2,26 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../main.dart';
 import '../controllers/stage_controller.dart';
 
 class StageView extends StatelessWidget {
   final StageController stageController = Get.put(StageController());
-
+  final ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Stage Management'),
+        actions: [
+
+            IconButton(
+              icon: Icon(Icons.brightness_6),
+              onPressed: () {
+                themeController.toggleTheme(); // Toggle the theme
+              },
+            ),
+        ],
       ),
       body: Obx(() {
         if (stageController.isLoading.value) {
